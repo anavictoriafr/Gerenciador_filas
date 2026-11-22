@@ -2,10 +2,8 @@
 
 Sistema inteligente de gerenciamento de filas para utilização dos micro-ondas do Centro de Informática (CI) da Universidade Federal da Paraíba (UFPB).
 
-<p align="center">
-  <img src="<img width="368" height="237" alt="Captura de tela 2026-11-22 204722" src="https://github.com/user-attachments/assets/efed9b79-79ed-40df-a030-2265abdd6670" />
-" alt="Esquentando com Brisa" width="400">
-</p>
+<img width="368" height="237" alt="Captura de tela 2026-11-22 204722" src="https://github.com/user-attachments/assets/6cf75334-d745-43c0-8b32-c8e09a2222a3" />
+
 
 ---
 
