@@ -1,0 +1,473 @@
+/*
+   Variáveis e base de estilo
+   - Definimos cores, raios de borda e sombras para reutilizar*/
+:root {
+  --bg: #e5e5e5;         /* Cor de fundo geral */
+  --ink: #1c1c1c;        /* Cor do texto principal */
+  --brand: #0a2b35;      /* Cor principal (cabeçalho/rodapé) */
+  --brand-2: #255398;    /* Cor de destaque (botões/títulos) */
+  --card: #ffffff;       /* Cor de fundo de cartões */
+  --muted: #666666;      /* Texto secundário */
+  --radius-xl: 24px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --shadow-1: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-2: 0 3px 12px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 4px 20px rgba(10, 43, 53, 0.3);
+}
+
+/* Box sizing consistente e reset de margens/paddings básicos */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Fonte padrão do corpo e cores básicas */
+body {
+  font-family: "Josefin Sans", sans-serif; /* Carregada via Google Fonts */
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* =========================================================
+   Header / Navbar
+   ========================================================= */
+.header {
+  background: var(--brand);
+  padding: 1.2rem 0;
+  box-shadow: var(--shadow-strong);
+}
+
+.nav-container {
+  max-width: 1200px;         /* Largura máxima centralizada */
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;             /* Layout em linha */
+  align-items: center;       /* Alinhamento vertical */
+  justify-content: space-between; /* Espaçamento entre logo e menu */
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;                 /* Espaço entre “logo” e textos */
+}
+
+/* Círculo que simula um espaço para a logo */
+.logo-placeholder {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--brand-2);
+  display: grid;
+  place-items: center;       /* Centraliza o emoji */
+  font-size: 1.4rem;
+}
+
+.brand-text {
+  color: #fff;               /* Textos do topo são brancos */
+}
+
+/* Título da marca no header */
+.brand-title {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif; /* Fonte de destaque */
+  letter-spacing: 0.5px;
+  font-size: 1.8rem;
+}
+
+.brand-subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Menu de navegação (links) */
+.nav-menu {
+  list-style: none;          /* Remove marcadores da lista */
+  display: flex;
+  gap: 1.2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  color: #fff;
+  text-decoration: none;     /* Remove sublinhado */
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: background-color 0.25s ease;
+}
+
+.nav-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================================
+   Layout principal do conteúdo
+   ========================================================= */
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;             /* Espaçamento interno nas laterais */
+}
+
+/* =========================================================
+   Seção Hero (destaque inicial)
+   ========================================================= */
+.hero-section {
+  background: var(--card);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-1);
+  text-align: center;
+}
+
+/* Título do hero (visual, não afeta a lógica JS) */
+.hero-title {
+  margin: 0 0 0.75rem 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--ink);
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* Subtítulo do hero */
+.hero-subtitle {
+  margin: 0 0 2rem 0;
+  color: var(--muted);
+}
+
+/* Cartão que envolve o formulário */
+.queue-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-2);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Título do cartão do formulário */
+.card-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  color: var(--brand);
+  font-weight: 700;
+}
+
+/* =========================================================
+   Formulário original (IDs preservados)
+   ========================================================= */
+.queue-form {
+  display: grid;
+  grid-template-columns: 1fr 180px auto; /* Nome | Tempo | Botão */
+  gap: 0.75rem;
+}
+
+/* Inputs padronizados */
+.input {
+  padding: 0.8rem 0.9rem;
+  border: 1.5px solid #e6e6e6;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: "Josefin Sans", sans-serif;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito ao focar nos inputs */
+.input:focus {
+  border-color: var(--brand-2);
+  box-shadow: 0 0 0 3px rgba(46, 196, 241, 0.2);
+}
+
+/* Botões com destaque visual (classe compartilhada) */
+.btn {
+  border: none;
+  cursor: pointer;
+  padding: 0.9rem 1.2rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  transition: transform 0.1s ease, box-shadow 0.2s ease, background 0.2s ease;
+  font-family: "Bebas Neue", sans-serif; /* Fonte de destaque nos botões */
+  letter-spacing: 0.5px;
+}
+
+/* Botão principal “Adicionar à fila” */
+.join-btn {
+  background: var(--brand-2);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(46, 196, 241, 0.3);
+}
+
+.join-btn:hover {
+  background:  #255398;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(46, 196, 241, 0.35);
+}
+
+/* =========================================================
+   Seção: Fila atual (lista gerada dinamicamente)
+   ========================================================= */
+.current-queue {
+  background: var(--card);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-1);
+  margin: 2rem 0;
+}
+
+/* Título de seção */
+.section-title {
+  text-align: center;
+  margin: 0 0 1.25rem 0;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.5px;
+  font-size: 1.6rem;
+}
+
+/* Variação de cor para título decorativo */
+.section-title.accent {
+  color: var(--brand-2);
+}
+
+/* Cartão que envolve a lista UL */
+.queue-list-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  box-shadow: var(--shadow-2);
+}
+
+/* UL da fila (IDs preservados) */
+.queue-list {
+  list-style: none;  /* Remove marcadores padrão */
+  margin: 0;
+  padding: 0;
+}
+
+/* Cada item da fila (LI) estilizado como “cardzinho” */
+.queue-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 8px;
+  margin-bottom: 0.4rem;
+  background: #f9f9f9;
+}
+
+/* Destaque especial para o primeiro item (quem está usando agora) */
+.queue-list li:first-child {
+  background: var(--brand-2);
+  color: #fff;
+  font-weight: bold;
+}
+
+/* =========================================================
+   Seção “Como funciona”
+   ========================================================= */
+.how-it-works {
+  background: var(--card);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-1);
+  margin: 2rem 0;
+}
+
+/* Grade de passos responsiva */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+.step {
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Bolinha numerada do passo */
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: var(--brand-2);
+  color: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  margin: 0 auto 0.75rem auto;
+}
+
+/* =========================================================
+   Rodapé
+   ========================================================= */
+.footer {
+  background: var(--brand);
+  color: #fff;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Espaços para logos no rodapé */
+.footer-logos {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-ci-space,
+.logo-ufpb-space {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--brand-2);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 2px 8px rgba(46, 196, 241, 0.2);
+}
+
+.logo-ci-placeholder,
+.logo-ufpb-placeholder {
+  color: var(--brand-2);
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Imagens das logos no rodapé */
+.footer-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* mantém proporção sem cortar */
+  border-radius: 50%;  /* segue o formato circular do container */
+  padding: 6px;        /* respiro interno */
+  background: transparent;
+}
+/* =========================================================
+   Responsividade (ajustes para telas menores)
+   ========================================================= */
+@media (max-width: 900px) {
+  /* Form vira 2 colunas: nome | tempo, botão pula para baixo */
+  .queue-form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .join-btn {
+    grid-column: 1 / -1; /* Botão ocupa toda a largura na linha de baixo */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Navbar empilha conteúdo em telas menores */
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  .main-container {
+    padding: 1rem;
+  }
+}
+/* Banner privado do código do usuário */
+.my-code-banner {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background: #f7fbff;
+  border: 1px solid #e0eefc;
+  box-shadow: var(--shadow-2);
+  text-align: left;
+}
+.my-code-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.my-code-line .label {
+  color: var(--muted);
+  font-weight: 600;
+}
+.my-code-line .code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: var(--brand-2);
+}
+.my-code-actions {
+  margin-top: 0.5rem;
+}
+.copy-btn {
+  background: #0e7d32;
+  color: #fff;
+}
+.copy-btn:hover {
+  background: #0c6b2a;
+}
+.my-code-hint {
+  margin: 0.5rem 0 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Modal (sua vez) */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 24, 40, 0.5);
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+}
+.modal[hidden] {
+  display: none;
+}
+.modal-content {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  max-width: 420px;
+  width: calc(100% - 2rem);
+  box-shadow: var(--shadow-strong);
+  text-align: center;
+}
+.modal-title {
+  margin: 0 0 0.5rem 0;
+}
+.modal-code {
+  font-size: 1.1rem;
+}
+.modal-instruction {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+.modal-instruction strong {
+  color: var(--brand-2);
+}
+.modal-actions {
+  margin-top: 1rem;
+}

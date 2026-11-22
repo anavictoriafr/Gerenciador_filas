@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <!-- Configurações básicas de encoding e viewport para boa exibição em dispositivos móveis -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Título da aba do navegador -->
+    <title>Esquenta com Brisa - Fila do Micro-ondas</title>
+
+    <!-- Google Fonts:
+         - Josefin Sans: usada no corpo do site (texto geral)
+         - Bebas Neue: usada em títulos e botões para dar destaque -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Arquivo de estilos principal -->
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <!-- Cabeçalho fixo do site com a navegação principal -->
+    <header class="header">
+      <nav class="nav-container">
+        <!-- Bloco com a “logo” (placeholder) e textos da marca -->
+        <div class="logo-section">
+          <!-- Espaço redondo para uma logomarca (aqui usamos um emoji como exemplo) -->
+          <div class="logo-placeholder">🐕</div>
+
+          <!-- Título e subtítulo da marca no cabeçalho -->
+          <div class="brand-text">
+            <!-- Título grande do topo (não confundir com o h2 do herói) -->
+            <h1 class="brand-title">Esquenta com Brisa</h1>
+            <p class="brand-subtitle">Fila do Micro-ondas - CI/UFPB</p>
+          </div>
+        </div>
+
+        <!-- Menu de navegação (links de âncora para seções da mesma página) -->
+        <ul class="nav-menu">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#fila">Fila Atual</a></li>
+          <li><a href="#como-funciona">Como Funciona</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Conteúdo principal da página -->
+    <main class="main-container">
+      <!-- Seção de destaque (“hero”) com um subtítulo e o formulário da fila -->
+      <section class="hero-section" id="inicio">
+        <div class="hero-content">
+          <!-- Título da seção (visual) -->
+          <h2 class="hero-title">🍽 Esquente sua comida sem pressa!</h2>
+
+          <!-- Subtítulo explicativo -->
+          <p class="hero-subtitle">
+            Sistema de fila do micro-ondas do Centro de Informática
+          </p>
+
+          <!-- Cartão que envolve seu formulário original (IDs preservados) -->
+          <div class="queue-card">
+            <h3 class="card-title">Entrar na Fila</h3>
+
+            <!-- Formulário original (mesma lógica do JS depende destes IDs) -->
+            <form id="form" class="queue-form">
+              <!-- Campo para o nome do usuário -->
+              <!-- autocomplete com o valor "name" diz ao navegador que esse campo é para o NOME COMPLETO -->
+              <input
+                type="text"
+                id="nome"
+                placeholder="Seu nome"
+                required
+                class="input"
+                autocomplete="name" 
+                
+              />
+
+              <!-- Campo para o tempo em minutos (número inteiro) -->
+              <input
+                type="number"
+                id="time"
+                placeholder="Tempo (min)"
+                min="1"
+                step="1"
+                required
+                class="input"
+              />
+
+              <!-- Botão de enviar para adicionar à fila -->
+              <button type="submit" class="btn join-btn">
+                Adicionar à fila
+              </button>
+            </form>
+            <!-- Banner privado com o código do usuário (não aparece na lista pública) -->
+            <div id="my-code-banner" class="my-code-banner" hidden>
+              <div class="my-code-line">
+                <span class="label">Seu código:</span>
+                <span id="my-code-value" class="code"></span>
+              </div>
+              <div class="my-code-actions">
+                <button id="copy-code-btn" class="btn copy-btn" type="button">
+                  Copiar código
+                </button>
+              </div>
+              <p class="my-code-hint">
+                Guarde este código. Quando chegar sua vez, você será notificado.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção que mostra a lista atual da fila -->
+      <section class="current-queue" id="fila">
+        <!-- Título da seção “Fila Atual” -->
+        <h2 class="section-title">📋 Fila Atual</h2>
+
+        <!-- Cartão que contém a ul da fila (IDs preservados) -->
+        <div class="queue-list-card">
+          <!-- A ul onde os itens da fila serão inseridos via JavaScript -->
+          <ul id="list" class="queue-list"></ul>
+        </div>
+      </section>
+
+      <!-- Seção explicando como o sistema funciona (apenas visual/texto) -->
+      <section class="how-it-works" id="como-funciona">
+        <!-- Título com cor de destaque -->
+        <h2 class="section-title accent">🤔 Como Funciona?</h2>
+
+        <!-- Passos ilustrativos em grid responsivo -->
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Entre na Fila</h3>
+            <p>Preencha seu nome e o tempo em minutos e envie.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Acompanhe</h3>
+            <p>Veja a lista e o tempo de espera acumulado.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Sua Vez</h3>
+            <p>Quando chegar sua vez, utilize o micro-ondas. Você será notificado com seu código.</p>
+          </div>
+      </section>
+    </main>
+
+<!-- Rodapé com informações e placeholders de logos -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p><strong>Esquenta com Brisa</strong> - Sistema de Fila do Micro-ondas</p>
+      <p>Centro de Informática - Universidade Federal da Paraíba</p>
+    </div>
+
+    <!-- Espaço para logos (ex.: CI e UFPB) -->
+    <div class="footer-logos">
+      <div class="logo-ci-space">
+        <img
+          src="images/logo-ci.jpeg"
+          class="footer-logo-img"
+          loading="lazy"
+        />
+      </div>
+      <div class="logo-ufpb-space">
+        <img
+          src="images/logo-ufpb.png"
+          class="footer-logo-img"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</footer>
+  <!-- Modal que aparece quando for a sua vez -->
+    <div id="turn-modal" class="modal" hidden>
+      <div class="modal-content">
+        <h3 class="modal-title">É a sua vez! 🎉</h3>
+        <p>Vá até o micro-ondas e insira o seu código.</p>
+        <p class="modal-code">
+          Seu código: <strong id="turn-code"></strong>
+        </p>
+        <p class="modal-instruction">
+          Ao finalizar, pressione a tecla <strong>#</strong> no teclado do micro-ondas.
+        </p>
+        <div class="modal-actions">
+          <button id="close-modal" class="btn join-btn" type="button">Ok</button>
+        </div>
+      </div>
+    </div>
+    <!-- Importa a lógica do site (arquivo JS). “defer” garante execução após o HTML estar parseado -->
+    <script src="main.js" defer></script>
+  </body>
+</html>
